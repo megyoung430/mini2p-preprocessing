@@ -1,0 +1,119 @@
+import numpy as np
+from pathlib import Path
+import torch
+
+import suite2p
+from suite2p.extraction.masks import create_cell_pix, create_neuropil_masks, create_masks, create_cell_mask
+from suite2p.extraction.extract import extraction_wrapper
+from suite2p.detection import roi_stats
+
+# Read in mask data from cellpose
+# cellpose_fpath = "/Users/sandrareinert/Library/Mobile Documents/com~apple~CloudDocs/Documents/Postdoc_SWC/Local/Stack 1/mean_img_seg.npy"
+cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/striped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
+cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
+# cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/striped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
+# cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/destriped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
+cellpose_masks = np.load(cellpose_fpath, allow_pickle=True).item()
+
+
+# Read in existing data from a suite2p run. We will use the "ops" and registered binary.
+# wd_path = '/Users/sandrareinert/Library/Mobile Documents/com~apple~CloudDocs/Documents/Postdoc_SWC/Local/Stack 1/suite2p/plane0'  # This should be the folder where processed suite2p files are saved. Consider making a backup copy of this folder before starting
+wd_path = '/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/striped_distortion_uncorrected/suite2p/plane0/'
+wd_path = '/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/'
+# wd_path = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/striped_distortion_uncorrected/suite2p/plane0/"
+# wd_path = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/destriped_distortion_uncorrected/suite2p/plane0/"
+wd = Path(wd_path)
+ops = np.load(wd/'ops.npy', allow_pickle=True).item()
+Lx = ops['Lx']
+Ly = ops['Ly']
+f_reg = suite2p.io.BinaryFile(Ly, Lx, wd/'data.bin')
+f_reg2 = suite2p.io.BinaryFile(Ly, Lx, wd/'data_chan2.bin')
+
+
+# Using these inputs, we will first mimic the stat array made by suite2p
+masks = cellpose_masks['masks']
+stat = []
+for u_ix, u in enumerate(np.unique(masks)[1:]):
+    ypix,xpix = np.nonzero(masks==u)
+    npix = len(ypix)
+    stat.append({'ypix': ypix, 'xpix': xpix, 'npix': npix, 'lam': np.ones(npix, np.float32), 'med': [np.mean(ypix), np.mean(xpix)]})
+stat = np.array(stat)
+stat = roi_stats(stat, Ly, Lx)  # This function fills in remaining roi properties to make it compatible with the rest of the suite2p pipeline/GUI
+
+# Using the constructed stat file, get masks.  Suite2p's current API takes
+# lam_percentile as the fourth positional argument, so pass every option by
+# name rather than accidentally passing the complete ops dictionary there.
+cell_masks, neuropil_masks = create_masks(
+    stat,
+    Ly=Ly,
+    Lx=Lx,
+    lam_percentile=ops.get('lam_percentile', 50.0),
+    allow_overlap=ops.get('allow_overlap', False),
+    neuropil_extract=True,
+    inner_neuropil_radius=ops.get('inner_neuropil_radius', 2),
+    min_neuropil_pixels=ops.get('min_neuropil_pixels', 350),
+    circular_neuropil=ops.get('circular_neuropil', False),
+)
+
+# Feed these values into the wrapper functions
+# Current Suite2p returns four fluorescence arrays (not stat) and accepts an
+# extraction settings dictionary rather than ops=.  Supplying the masks above
+# ensures the exact same masks are used for both channels. Use CPU explicitly
+# so this also runs on Macs without CUDA.
+F, Fneu, F_chan2, Fneu_chan2 = extraction_wrapper(
+    stat,
+    f_reg,
+    f_reg_chan2=f_reg2,
+    cell_masks=cell_masks,
+    neuropil_masks=neuropil_masks,
+    settings={'batch_size': ops.get('batch_size', 500)},
+    device=torch.device('cpu'),
+)
+stat_after_extraction = stat
+
+
+# Do cell classification
+classfile = suite2p.classification.builtin_classfile
+iscell = suite2p.classify(stat=stat_after_extraction, classfile=classfile)
+
+# Apply preprocessing step for deconvolution
+# Some newer Suite2p ops files omit the older flat deconvolution keys. Use
+# Suite2p's documented defaults, including the standard 0.7 neuropil factor,
+# and add them to ops so the saved outputs remain GUI-compatible.
+deconv_defaults = {
+    'neucoeff': 0.7,
+    'baseline': 'maximin',
+    'win_baseline': 60.0,
+    'sig_baseline': 10.0,
+    'prctile_baseline': 8.0,
+    'batch_size': 500,
+    'tau': 1.0,
+    'fs': 7.52,
+}
+for key, value in deconv_defaults.items():
+    ops.setdefault(key, value)
+
+dF = F.copy() - ops['neucoeff'] * Fneu
+dF = suite2p.extraction.preprocess(
+        F=dF,
+        baseline=ops['baseline'],
+        win_baseline=ops['win_baseline'],
+        sig_baseline=ops['sig_baseline'],
+        fs=ops['fs'],
+        prctile_baseline=ops['prctile_baseline'],
+        batch_size=ops['batch_size'],
+        device=torch.device('cpu'),
+    )
+# Identify spikes
+spks = suite2p.extraction.oasis(F=dF, batch_size=ops['batch_size'], tau=ops['tau'], fs=ops['fs'])
+
+
+# Overwrite files in wd folder (consider backing up this folder first)
+np.save(wd/'F.npy', F)
+np.save(wd/'Fneu.npy', Fneu)
+np.save(wd/'F_chan2.npy', F_chan2)
+np.save(wd/'Fneu_chan2.npy', Fneu_chan2)
+np.save(wd/'iscell.npy', iscell)
+np.save(wd/'ops.npy', ops)
+np.save(wd/'spks.npy', spks)
+np.save(wd/'stat.npy', stat)
