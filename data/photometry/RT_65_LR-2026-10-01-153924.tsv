@@ -1,0 +1,48 @@
+time	type	subtype	content
+0.000	info	experiment_name	Meg\nlightg2_photometry_test
+0.000	info	task_name	Meg\nlightg2_photometry_test
+0.000	info	task_file_hash	59156075
+0.000	info	setup_id	Top Small Maze
+0.000	info	framework_version	2.0.1
+0.000	info	micropython_version	1.222
+0.000	info	subject_id	RT_65_LR
+0.000	info	start_time	2026-10-01T14:39:24.075
+0.000	variable	run_start	{"object_in": false, "object_num": 1, "airpuff": false, "ses_length": 60, "object_out": false, "with_LED": false, "curr_init_tow": "B2"}
+0.000	state		explore
+0.001	event	sync	rsync
+5.333	event	input	B3_in
+5.388	event	input	B3_out
+8.160	event	sync	rsync
+10.135	event	sync	rsync
+10.191	variable	user_set	{"airpuff": true}
+12.056	event	sync	rsync
+13.257	event	input	B3_in
+13.547	event	input	B3_out
+16.691	event	sync	rsync
+22.202	event	sync	rsync
+25.331	event	input	B2_in
+25.732	event	input	B2_out
+29.162	event	input	B2_in
+29.552	event	input	B2_out
+31.202	event	sync	rsync
+31.911	event	input	B2_in
+33.055	event	input	B2_out
+35.607	event	sync	rsync
+37.338	event	sync	rsync
+46.066	event	sync	rsync
+49.505	event	sync	rsync
+50.679	variable	user_set	{"airpuff": true}
+55.347	event	sync	rsync
+64.000	event	sync	rsync
+72.215	variable	user_set	{"airpuff": true}
+73.088	event	sync	rsync
+75.346	event	sync	rsync
+83.680	event	sync	rsync
+85.538	event	sync	rsync
+86.317	event	input	B2_in
+86.618	event	input	B2_out
+88.950	event	input	B2_in
+89.033	event	input	B2_out
+91.396	event	sync	rsync
+91.813	variable	run_end	{"object_in": false, "object_num": 1, "airpuff": true, "ses_length": 60, "object_out": false, "with_LED": false, "curr_init_tow": "B2"}
+91.814	info	end_time	2026-10-01T14:40:55.986

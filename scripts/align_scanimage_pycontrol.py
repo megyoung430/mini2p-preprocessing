@@ -156,9 +156,11 @@ def nearest_frame_indices(event_times_s: np.ndarray, frame_times_s: np.ndarray) 
 
 def load_bandit_session(tsv_path: Path, project: Path) -> dict[str, Any]:
     """Use magnitude-bandit-analysis itself to preserve its canonical fields."""
-    src = str(project / "src")
-    if src not in sys.path:
-        sys.path.insert(0, src)
+    # Support both behavior_import.* and the project's internal src.* imports.
+    project = project.resolve()
+    for path in (project, project / "src"):
+        if str(path) not in sys.path:
+            sys.path.insert(0, str(path))
     import_module = importlib.import_module("behavior_import.import_data")
     extract_trials = importlib.import_module("behavior_import.extract_trials").extract_trials
     raw = import_module.read_tsv_file(tsv_path)

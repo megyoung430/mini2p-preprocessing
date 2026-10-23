@@ -1,0 +1,13 @@
+# generated data and derivatives
+results/
+output/
+tmp/
+.cache/
+*.bin
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# OS
+.DS_Store

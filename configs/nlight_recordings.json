@@ -1,0 +1,36 @@
+{
+  "_comment": "Paths for the nLightG2 notebooks. {meg1} is replaced by meg1_root (or the NLIGHT_MEG1_ROOT environment variable). Relative paths are relative to this file. Suite2p folders on the share are only read; exports for corridor2 are written locally under results/. derived_root is a local folder for derived outputs such as running-regressed dF/F.",
+  "meg1_root": "/Volumes/mrsic_flogel/public/projects/SaEl_20220201_VIP/2pdata/LC/grab/meg1",
+  "recordings": {
+    "corridor2 passive viewing": {
+      "suite2p_root": "{meg1}/corridor2/raw_data/suite2p",
+      "export_root": "../results/corridor2_raw_data",
+      "behavior_table": "{meg1}/corridor2/raw_data/suite2p/all_data.pkl",
+      "derived_root": "../results/corridor2_raw_data"
+    },
+    "corridor2 baseline": {
+      "suite2p_root": "{meg1}/corridor2/baseline_data/suite2p",
+      "export_root": "../results/corridor2_baseline_data",
+      "behavior_table": null,
+      "derived_root": "../results/corridor2_baseline_data"
+    },
+    "passive (4 planes)": {
+      "suite2p_root": "{meg1}/passive/suite2p",
+      "export_root": "{meg1}/passive/suite2p",
+      "behavior_table": "{meg1}/passive/data.pkl",
+      "derived_root": "../results/passive"
+    },
+    "no puff (2x, 4 planes)": {
+      "suite2p_root": "{meg1}/raw_data_2x/suite2p",
+      "export_root": "{meg1}/raw_data_2x/suite2p",
+      "behavior_table": null,
+      "derived_root": "../results/raw_data_2x"
+    },
+    "puff (2x, 4 planes)": {
+      "suite2p_root": "{meg1}/raw_data_2x_puff/suite2p",
+      "export_root": "{meg1}/raw_data_2x_puff/suite2p",
+      "behavior_table": null,
+      "derived_root": "../results/raw_data_2x_puff"
+    }
+  }
+}

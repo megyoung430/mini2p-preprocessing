@@ -1,0 +1,67 @@
+time	type	subtype	content
+0.000	info	experiment_name	Meg\nlightg2_photometry_test
+0.000	info	task_name	Meg\nlightg2_photometry_test
+0.000	info	task_file_hash	2966543087
+0.000	info	setup_id	Top Small Maze
+0.000	info	framework_version	2.0.1
+0.000	info	micropython_version	1.222
+0.000	info	subject_id	RT_64_N
+0.000	info	start_time	2026-10-01T14:13:09.373
+0.000	variable	run_start	{"ses_length": 60, "airpuff": false, "object_out": false, "object_in": false, "object_num": 1}
+0.000	state		explore
+0.001	event	sync	rsync
+8.322	event	sync	rsync
+9.611	event	input	B2_in
+9.707	event	input	B2_out
+11.932	event	sync	rsync
+12.824	event	input	C2_in
+13.204	event	input	C2_out
+20.757	event	sync	rsync
+26.674	variable	user_set	{"airpuff": true}
+28.959	event	sync	rsync
+32.047	event	sync	rsync
+35.421	variable	user_set	{"airpuff": true}
+37.502	event	sync	rsync
+44.458	event	sync	rsync
+47.308	event	input	B2_in
+47.368	event	input	B2_out
+49.212	event	sync	rsync
+54.094	event	sync	rsync
+59.864	event	sync	rsync
+62.420	event	sync	rsync
+63.347	event	input	B2_in
+64.233	event	input	B2_out
+64.305	event	sync	rsync
+66.817	event	sync	rsync
+73.396	event	sync	rsync
+75.376	event	input	A3_in
+75.449	event	input	A3_out
+75.595	event	input	A3_in
+75.665	event	input	A3_out
+77.641	event	input	A2_in
+78.022	event	input	A2_out
+79.650	event	sync	rsync
+83.522	event	input	A1_in
+83.846	event	sync	rsync
+84.142	event	input	A1_out
+89.485	event	sync	rsync
+91.677	event	input	A2_in
+91.852	event	input	A2_out
+95.604	event	sync	rsync
+96.691	event	input	B2_in
+96.870	event	input	B2_out
+101.130	event	sync	rsync
+103.465	event	sync	rsync
+107.329	event	sync	rsync
+110.964	event	sync	rsync
+116.385	event	sync	rsync
+117.132	variable	user_set	{"airpuff": true}
+121.684	event	sync	rsync
+123.348	event	sync	rsync
+125.918	variable	user_set	{"airpuff": true}
+127.198	event	sync	rsync
+134.256	event	sync	rsync
+138.797	event	sync	rsync
+143.718	event	sync	rsync
+146.322	variable	run_end	{"ses_length": 60, "airpuff": true, "object_out": false, "object_in": false, "object_num": 1}
+146.322	info	end_time	2026-10-01T14:15:35.793

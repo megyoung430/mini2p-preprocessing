@@ -1,0 +1,371 @@
+{
+  "root": "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R",
+  "sessions": [
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-05",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-06",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-216_date-20260730",
+      "run": "run-07",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-217_date-20260731",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-217_date-20260731",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-217_date-20260731",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-218_date-20260801",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-218_date-20260801",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-218_date-20260801",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-218_date-20260801",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-218_date-20260801",
+      "run": "run-05",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-05",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-219_date-20260802",
+      "run": "run-06",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-220_date-20260803",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-220_date-20260803",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-220_date-20260803",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-220_date-20260803",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-05",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-221_date-20260804",
+      "run": "run-06",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-222_date-20260805",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-222_date-20260805",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-222_date-20260805",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-223_date-20260807",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-223_date-20260807",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-223_date-20260807",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-223_date-20260807",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-224_date-20260809",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-224_date-20260809",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-224_date-20260809",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-225_date-20260810",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-225_date-20260810",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-225_date-20260810",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-225_date-20260810",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-225_date-20260810",
+      "run": "run-05",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-226_date-20260811",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-226_date-20260811",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-226_date-20260811",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-227_date-20260813",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-227_date-20260813",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-227_date-20260813",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-227_date-20260813",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-228_date-20260814",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-228_date-20260814",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-228_date-20260814",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-228_date-20260814",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-229_date-20260816",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-229_date-20260816",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-229_date-20260816",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-229_date-20260816",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-230_date-20260817",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-230_date-20260817",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-230_date-20260817",
+      "run": "run-03",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-230_date-20260817",
+      "run": "run-04",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-231_date-20260818",
+      "run": "run-01",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-231_date-20260818",
+      "run": "run-02",
+      "plane": "plane0"
+    },
+    {
+      "session": "ses-231_date-20260818",
+      "run": "run-03",
+      "plane": "plane0"
+    }
+  ],
+  "image_file": "meanImg_green_functional_raw.tif",
+  "roi_file": "meanImg_green_functional_contrast_seg.npy",
+  "cells_only": true,
+  "um_per_pixel": 0.9880824125806964,
+  "use_gpu": false,
+  "roicat_overrides": {
+    "alignment": {
+      "fit_geometric": {
+        "template": 0,
+        "method": "PhaseCorrelation"
+      },
+      "fit_nonrigid": {
+        "template": 0,
+        "method": "DeepFlow"
+      }
+    }
+  },
+  "pixel_size_note": "User reported FOV 466 in x and 500 in y, interpreted as micrometres across the exported 501 x 478 pixel images. Axis scales are recorded in pixel_size_um. This runner supplies ROICaT their arithmetic mean as an isotropic approximation; it does not resample images or ROIs to correct anisotropy. Confirm calibration/cropping if these dimensions describe the uncropped acquisition.",
+  "fov_um": {
+    "x": 466,
+    "y": 500
+  },
+  "pixel_size_um": {
+    "x": 0.9301397205588823,
+    "y": 1.0460251046025104
+  }
+}

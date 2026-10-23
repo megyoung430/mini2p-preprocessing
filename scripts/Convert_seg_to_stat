@@ -9,8 +9,8 @@ from suite2p.detection import roi_stats
 
 # Read in mask data from cellpose
 # cellpose_fpath = "/Users/sandrareinert/Library/Mobile Documents/com~apple~CloudDocs/Documents/Postdoc_SWC/Local/Stack 1/mean_img_seg.npy"
-cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/striped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
-cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
+cellpose_fpath = "/Users/megyoung/mini2p-preprocessing/data/mini2p/raw/MY_71_R/run-02/without_destriping/suite2p/plane0/meanImg_green_functional_contrast_seg.npy"
+# cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
 # cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/striped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
 # cellpose_fpath = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/destriped_distortion_uncorrected/suite2p/plane0/meanImg_ch1_seg.npy"
 cellpose_masks = np.load(cellpose_fpath, allow_pickle=True).item()
@@ -18,8 +18,8 @@ cellpose_masks = np.load(cellpose_fpath, allow_pickle=True).item()
 
 # Read in existing data from a suite2p run. We will use the "ops" and registered binary.
 # wd_path = '/Users/sandrareinert/Library/Mobile Documents/com~apple~CloudDocs/Documents/Postdoc_SWC/Local/Stack 1/suite2p/plane0'  # This should be the folder where processed suite2p files are saved. Consider making a backup copy of this folder before starting
-wd_path = '/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/striped_distortion_uncorrected/suite2p/plane0/'
-wd_path = '/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/'
+wd_path = "/Users/megyoung/mini2p-preprocessing/data/mini2p/raw/MY_71_R/run-02/without_destriping/suite2p/plane0/"
+# wd_path = '/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-03_id-MY_71_R/ses-177_date-20260624/funcimg/destriped_distortion_uncorrected/suite2p/plane0/'
 # wd_path = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/striped_distortion_uncorrected/suite2p/plane0/"
 # wd_path = "/Volumes/behrens/meg/3x3_field_magnitude_bandit/derivatives/cohort-01/sub-05_id-MY_72_L/ses-169_date-20260621/funcimg/destriped_distortion_uncorrected/suite2p/plane0/"
 wd = Path(wd_path)
